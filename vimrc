@@ -87,7 +87,7 @@ endif
 "turn off folds by default
 set nofoldenable
 
-if &t_Co > 16
+if &t_Co > 16 || has('gui')
   colorscheme mustang
 else
   colorscheme desert
