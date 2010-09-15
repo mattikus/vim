@@ -27,11 +27,6 @@ set textwidth=78
 set laststatus=2 " always enable statusline
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
 "fix highlighting on some shell stuffs
 let g:is_posix=1
 
@@ -106,9 +101,37 @@ if &t_Co > 2
   syntax enable
 endif
 
+if has('gui')
+  "Set font based on which gui we're running
+  if has("gui_macvim")
+    set gfn=Menlo:h13
+    set antialias
+  else
+    set gfn=Terminus\ 12
+    set noantialias
+  endif
+  set cul
+  set nu
+  set lines=56
+  set guioptions-=r
+  set guioptions-=T
+  set guioptions-=m
+  set cmdheight=2
+endif
+
+" Stretches the term window by the width of the number column width
+let co=(&co + &nuw + 1)
+
+
 nnoremap <silent> <leader>l :set list!<CR>
 
+" Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " NERDTree Options
 nnoremap <leader>d :NERDTreeToggle<CR>
