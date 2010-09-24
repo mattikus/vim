@@ -7,11 +7,14 @@ else
   set guifont=Terminus\ 12
   set noantialias
 endif
-"set cursorline
 set colorcolumn=+1
-set relativenumber
-set lines=56
+"set cursorline
+"set relativenumber
+"set number
 set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 set guioptions-=T
 set guioptions-=m
 set cmdheight=2

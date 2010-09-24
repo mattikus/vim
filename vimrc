@@ -38,7 +38,6 @@ nnoremap k gk
 set hlsearch
 set incsearch
 set showmatch
-nnoremap <leader><space> :noh<cr>
 
 " see fo-table for options
 set formatoptions=qrnl1
@@ -50,6 +49,7 @@ let g:is_posix=1
 let mapleader=','
 let maplocalleader=';'
 
+"
 " Set up a persistent dir for backups and undos for files
 set nobackup
 set backupdir=$HOME/tmp,/var/tmp,/tmp
@@ -57,13 +57,25 @@ set backupdir=$HOME/tmp,/var/tmp,/tmp
 set noswapfile
 set directory=$HOME/tmp,/var/tmp,/tmp
 
-set undofile
-set undodir=$HOME/tmp,/var/tmp,/tmp
+if version >= 703
+  set undofile
+  set undodir=$HOME/tmp,/var/tmp,/tmp
+endif
 
 " No Help, please
 nmap <F1> <Esc>
 vmap <F1> <Esc>
 imap <F1> <Esc>
+
+"bind C-<hjkl> to move around splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Open .[gv]imrc in a new vertical split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>eg :vsplit $MYGVIMRC<cr>
 
 " Fix :W to be :w
 command! W :w
@@ -125,6 +137,9 @@ nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·
 nnoremap <silent> <leader>l :set list!<CR>
 
+" Hides highlighting from searches
+nnoremap <leader><space> :nohlsearch<cr>
+
 " Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -134,7 +149,9 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " NERDTree Options
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>dd :NERDTreeToggle<CR>
+nnoremap <leader>de :NERDTree 
+nnoremap <leader>df :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
 
