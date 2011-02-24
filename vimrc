@@ -179,3 +179,9 @@ let g:syntastic_enable_signs=1
 set statusline+=\ %#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*\
+
+" gist options
+let g:gist_detect_filetype = 1
+if has("unix") && has("x11")
+  let g:gist_clip_command = 'xclip'
+end
