@@ -154,8 +154,14 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
+if has("win32") || has("win64")
+  set shellslash " helps pathogen's duplication check
+  set runtimepath+=$USERPROFILE/vimfiles/bundle/pathogen
+else
+  set runtimepath+=$HOME/.vim/bundle/pathogen
+end
+call pathogen#runtime_append_all_bundles() 
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 " NERDTree Options
 nnoremap <leader>dd :NERDTreeToggle<CR>
