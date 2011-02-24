@@ -133,6 +133,10 @@ endif
 " bind <leader>W to remove all whitespace in a file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+nnoremap <leader>1 yypVr=
+nnoremap <leader>2 yypVr-
+nnoremap <leader>3 0i### <esc>$
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·
 nnoremap <silent> <leader>l :set list!<CR>
