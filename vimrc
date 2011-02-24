@@ -35,6 +35,11 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 nnoremap j gj
 nnoremap k gk
 
+"set leaders
+let mapleader=','
+let maplocalleader=';'
+
+"search options
 set hlsearch
 set incsearch
 set showmatch
@@ -46,10 +51,6 @@ set formatoptions=qrnl1
 "fix highlighting on some shell stuffs
 let g:is_posix=1
 
-"set leaders
-let mapleader=','
-let maplocalleader=';'
-
 " Set up a persistent dir for backups and undos for files
 set nobackup
 set backupdir=$HOME/tmp,/var/tmp,/tmp
@@ -58,7 +59,7 @@ set noswapfile
 set directory=$HOME/tmp,/var/tmp,/tmp
 
 set undofile
-set undodir=$HOME/tmp,/var/tmp,/tmp
+set undodir=$HOME/tmp/undo,/var/tmp,/tmp
 
 " No Help, please
 nmap <F1> <Esc>
@@ -72,7 +73,7 @@ command! W :w
 runtime macros/matchit.vim
 
 "stuff for vim 7
-if version > 700
+if version >= 700
   "set autochdir
   set completeopt=menuone,longest,preview
   set ve=onemore
@@ -102,6 +103,10 @@ if version > 700
     \   exe "normal g`\"" |
     \ endif
 
+endif
+
+if version >= 703 && &t_Co > 16
+  set colorcolumn=+1
 endif
 
 
