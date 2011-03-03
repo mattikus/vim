@@ -140,7 +140,7 @@ nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 nnoremap <leader>1 yypVr=
 nnoremap <leader>2 yypVr-
-nnoremap <leader>3 0i### <esc>$
+nnoremap <leader>3 0i### <esc>j
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·
