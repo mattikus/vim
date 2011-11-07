@@ -1,7 +1,7 @@
 colorscheme mustang
 
 if has("gui_macvim")
-  set guifont=Menlo:h12
+  set guifont=Ubuntu\ Mono:h13
   set antialias
 elseif has("gui_gtk2")
   set guifont=montecarlo\ 9

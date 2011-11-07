@@ -30,7 +30,7 @@ set scrolloff=3
 set shortmess=atTIs
 set verbose=0
 set laststatus=2 " always enable statusline
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 nnoremap j gj
 nnoremap k gk
@@ -170,15 +170,36 @@ nnoremap <leader>df :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
 
-" vim-fugitive related options
-set statusline+=\ %{fugitive#statusline()}
+" Statusline functions and settings
+function! GetCWD()
+  return expand(":pwd")
+endfunction
 
-" Enable some syntastic options
-let g:syntastic_enable_signs=1
-"let g:syntastic_auto_loc_list=1
-set statusline+=\ %#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*\
+function! IsHelp()
+  return &buftype=='help'?' (help) ':''
+endfunction
+
+function! GetName()
+  return expand("%:t")==''?'<none>':expand("%:t")
+endfunction
+
+set statusline=%3*[%1*%{GetName()}%3*]%3*
+set statusline+=%7*%{&modified?'\ (modified)':'\ '}%3*
+set statusline+=%5*%{IsHelp()}%3*
+set statusline+=%6*%{&readonly?'\ (read-only)\ ':'\ '}%3*
+set statusline+=%3*fenc:%4*%{strlen(&fenc)?&fenc:'none'}%3*\ \ 
+set statusline+=%3*ff:%4*%{&ff}%3*\ \ 
+set statusline+=%3*ft:%4*%{strlen(&ft)?&ft:'<none>'}\ \ 
+set statusline+=%3*tab:%4*%{&ts}
+set statusline+=%3*,%4*%{&sts}
+set statusline+=%3*,%4*%{&sw}
+set statusline+=%3*,%4*%{&et?'et':'noet'}\ \ 
+set statusline+=%<%3*pwd:%4*%{getcwd()}\ \ 
+set statusline+=%9*%=
+set statusline+=\ %{fugitive#statusline()}\ 
+set statusline+=%3*col:%4*%c\ \ 
+set statusline+=%3*line:%4*%l\ \ 
+set statusline+=%3*total:%4*%L\ 
 
 " gist options
 let g:gist_detect_filetype = 1
