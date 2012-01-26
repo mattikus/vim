@@ -46,3 +46,9 @@
 [submodule "bundle/ctrp.vim"]
 	path = bundle/ctrp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "bundle/vim-tomorrow-theme"]
+	path = bundle/vim-tomorrow-theme
+	url = https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git

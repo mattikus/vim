@@ -206,3 +206,6 @@ let g:gist_detect_filetype = 1
 if has("unix") && has("x11")
   let g:gist_clip_command = 'xclip'
 end
+
+" Powerline Options
+let g:Powerline_symbols = 'fancy'
