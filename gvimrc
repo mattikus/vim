@@ -18,4 +18,4 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=T
 set guioptions-=m
-set cmdheight=2
+set cmdheight=1
