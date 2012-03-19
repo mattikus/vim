@@ -52,3 +52,6 @@
 [submodule "bundle/vim-tomorrow-theme"]
 	path = bundle/vim-tomorrow-theme
 	url = https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
+[submodule "bundle/textgenshi.vim"]
+	path = bundle/textgenshi.vim
+	url = git@github.com:mattikus/textgenshi.vim.git
