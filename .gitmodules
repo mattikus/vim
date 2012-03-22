@@ -58,3 +58,6 @@
 [submodule "bundle/vim-mediawiki"]
 	path = bundle/vim-mediawiki
 	url = https://github.com/kusnier/vim-mediawiki.git
+[submodule "bundle/vim-tmux"]
+	path = bundle/vim-tmux
+	url = https://github.com/acustodioo/vim-tmux.git
