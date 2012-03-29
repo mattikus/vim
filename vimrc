@@ -2,6 +2,7 @@ set nocompatible
 
 "turn on filetype matching
 filetype plugin indent on
+syntax enable
 
 set textwidth=79
 set hidden
@@ -13,9 +14,9 @@ set mouse=a
 set backspace=indent,eol,start
 set wrap
 set t_md="" "turn off bold chars in terminal
-set softtabstop=2
-set tabstop=2
-set shiftwidth=2
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent
@@ -30,7 +31,6 @@ set scrolloff=3
 set shortmess=atTIs
 set verbose=0
 set laststatus=2 " always enable statusline
-"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 nnoremap j gj
 nnoremap k gk
@@ -63,6 +63,10 @@ if version >= 703
   set undodir=$HOME/tmp/undo,/var/tmp,/tmp
 endif
 
+" Jump directly to insert mode with paste using F2 key
+map <F2> :set paste<CR>i
+imap <F2> <ESC>:set paste<CR>i<Right>
+
 " No Help, please
 nmap <F1> <Esc>
 vmap <F1> <Esc>
@@ -75,8 +79,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Open .[gv]imrc in a new vertical split
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>eg :vsplit $MYGVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>eg :split $MYGVIMRC<cr>
 
 " Fix :W to be :w
 command! W :w
@@ -107,7 +111,6 @@ if version >= 700
   let g:SuperTabDefaultCompletionType = "context"
   let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
-  " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
   autocmd BufReadPost *
@@ -117,10 +120,9 @@ if version >= 700
 
 endif
 
-if version >= 703 && &t_Co > 16
+if exists('+colorcolumn') && &t_Co > 16
   set colorcolumn=+1
 endif
-
 
 "turn off folds by default
 set nofoldenable
@@ -131,20 +133,16 @@ else
   colorscheme desert
 endif
 
-if &t_Co > 2
-  syntax enable "pretty colors
-endif
 
 " bind <leader>W to remove all whitespace in a file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-nnoremap <leader>1 yypVr=
-nnoremap <leader>2 yypVr-
-nnoremap <leader>3 0i### <esc>j
+" map Q to last recorded macro
+nnoremap Q @@
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·
-nnoremap <silent> <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪
 
 " Hides highlighting from searches
 nnoremap <leader><space> :nohlsearch<cr>
@@ -164,18 +162,19 @@ if has("win32") || has("win64")
 else
   set runtimepath+=$HOME/.vim/bundle/pathogen
 end
-call pathogen#runtime_append_all_bundles() 
+call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " NERDTree Options
 nnoremap <leader>dd :NERDTreeToggle<CR>
-nnoremap <leader>de :NERDTree 
+nnoremap <leader>de :NERDTree
 nnoremap <leader>df :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
 
 " Powerline Options
 let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
 " gist options
 let g:gist_detect_filetype = 1
@@ -183,3 +182,19 @@ if has("unix") && has("x11")
   let g:gist_clip_command = 'xclip'
 end
 
+
+" disable paste mode when leaving insert mode
+au InsertLeave * set nopaste
+
+nnoremap <leader>== yyPv$r=jyypv$r=
+nnoremap <leader>** yyPv$r*jyypv$r*
+nnoremap <leader>=  yypv$r=
+nnoremap <leader>-  yypv$r-
+nnoremap <leader>^  yypv$r^
+nnoremap <leader>"  yypv$r"
+
+nnoremap <silent> <leader>h :set hlsearch! hlsearch?<CR>
+nnoremap <silent> <leader>l :set list! list?<CR>
+nnoremap <silent> <leader>n :set number! number?<CR>
+nnoremap <silent> <leader>p :set paste! paste?<CR>
+nnoremap <silent> <leader>w :set wrap! wrap?<CR>

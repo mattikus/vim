@@ -40,6 +40,9 @@
 [submodule "bundle/vim-tomorrow-theme"]
 	path = bundle/vim-tomorrow-theme
 	url = https://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
+[submodule "bundle/textgenshi.vim"]
+	path = bundle/textgenshi.vim
+	url = https://mattikus@github.com/textgenshi.vim.git
 [submodule "bundle/vim-mediawiki"]
 	path = bundle/vim-mediawiki
 	url = https://github.com/kusnier/vim-mediawiki.git
