@@ -49,9 +49,6 @@
 [submodule "bundle/vim-tmux"]
 	path = bundle/vim-tmux
 	url = https://github.com/acustodioo/vim-tmux.git
-[submodule "bundle/vim-colorsupport"]
-	path = bundle/vim-colorsupport
-	url = https://github.com/vim-scripts/colorsupport.vim.git
 [submodule "bundle/vim-extradite"]
 	path = bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite.git
