@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Updates submodules in bundle subdirectory
 
 GIT=$(which git)
