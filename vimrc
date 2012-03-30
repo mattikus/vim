@@ -147,6 +147,10 @@ set showbreak=↪
 " Hides highlighting from searches
 nnoremap <leader><space> :nohlsearch<cr>
 
+" reselect visual block after indent/dedent
+vnoremap < <gv
+vnoremap > >gv
+
 " Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -178,8 +182,6 @@ if has("unix") && has("x11")
   let g:gist_clip_command = 'xclip'
 end
 
-" Spellcheck commit messages
-autocmd BufRead COMMIT_EDITMSG setlocal spell!
 
 " disable paste mode when leaving insert mode
 au InsertLeave * set nopaste
