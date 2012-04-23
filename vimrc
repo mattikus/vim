@@ -165,6 +165,11 @@ end
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+if has("unix") && system("uname") == "Darwin\n"
+    " Fun mac stuff can go here
+    nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+endif
+
 " NERDTree Options
 nnoremap <leader>dd :NERDTreeToggle<CR>
 nnoremap <leader>de :NERDTree
