@@ -1,9 +1,5 @@
 set nocompatible
 
-"turn on filetype matching
-filetype plugin indent on
-syntax enable
-
 set textwidth=79
 set hidden
 set showcmd
@@ -162,8 +158,11 @@ if has("win32") || has("win64")
 else
   set runtimepath+=$HOME/.vim/bundle/pathogen
 end
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
+
+"turn on filetype matching, has to be after pathogen for ftdetect
+filetype plugin indent on
+syntax enable
 
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
