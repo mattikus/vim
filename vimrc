@@ -43,7 +43,6 @@ set formatoptions=qrnl1
 "fix highlighting on some shell stuffs
 let g:is_posix=1
 
-
 " Set up a persistent dir for backups and undos for files
 set nobackup
 set backupdir=$HOME/tmp,/var/tmp,/tmp
@@ -51,7 +50,7 @@ set backupdir=$HOME/tmp,/var/tmp,/tmp
 set noswapfile
 set directory=$HOME/tmp,/var/tmp,/tmp
 
-if version >= 703
+if exists('+undofile')
   set undofile
   set undodir=$HOME/tmp/undo,/var/tmp,/tmp
 endif
@@ -89,7 +88,7 @@ runtime macros/matchit.vim
 if version >= 700
   "set autochdir
   set completeopt=menuone,longest,preview
-  set ve=onemore
+  set virtualedit=block
 
   "close the help preview window if moving in or leaving insert mode
   autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -182,13 +181,6 @@ let g:gist_detect_filetype = 1
 if has("unix") && has("x11")
   let g:gist_clip_command = 'xclip'
 end
-
-nnoremap <leader>== yyPv$r=jyypv$r=
-nnoremap <leader>** yyPv$r*jyypv$r*
-nnoremap <leader>=  yypv$r=
-nnoremap <leader>-  yypv$r-
-nnoremap <leader>^  yypv$r^
-nnoremap <leader>"  yypv$r"
 
 nnoremap <silent> <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <silent> <leader>l :set list! list?<CR>
