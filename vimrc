@@ -28,9 +28,6 @@ set shortmess=atTIs
 set verbose=0
 set laststatus=2 " always enable statusline
 
-nnoremap j gj
-nnoremap k gk
-
 "set leaders
 let mapleader=','
 let maplocalleader=';'
@@ -46,7 +43,7 @@ set formatoptions=qrnl1
 "fix highlighting on some shell stuffs
 let g:is_posix=1
 
-"
+
 " Set up a persistent dir for backups and undos for files
 set nobackup
 set backupdir=$HOME/tmp,/var/tmp,/tmp
@@ -63,12 +60,15 @@ endif
 map <F2> :set paste<CR>i
 imap <F2> <ESC>:set paste<CR>i<Right>
 
+" disable paste mode when leaving insert mode
+au InsertLeave * set nopaste
+
 " No Help, please
 nmap <F1> <Esc>
 vmap <F1> <Esc>
 imap <F1> <Esc>
 
-"bind C-<hjkl> to move around splits
+" bind C-<hjkl> to move around splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -78,8 +78,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>eg :split $MYGVIMRC<cr>
 
-" Fix :W to be :w
+" Fix caps errors on some commands
 command! W :w
+command! Q :q
 
 "Match more than just braces
 runtime macros/matchit.vim
@@ -143,10 +144,6 @@ set showbreak=↪
 " Hides highlighting from searches
 nnoremap <leader><space> :nohlsearch<cr>
 
-" reselect visual block after indent/dedent
-vnoremap < <gv
-vnoremap > >gv
-
 " Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -186,10 +183,6 @@ if has("unix") && has("x11")
   let g:gist_clip_command = 'xclip'
 end
 
-
-" disable paste mode when leaving insert mode
-au InsertLeave * set nopaste
-
 nnoremap <leader>== yyPv$r=jyypv$r=
 nnoremap <leader>** yyPv$r*jyypv$r*
 nnoremap <leader>=  yypv$r=
@@ -202,3 +195,10 @@ nnoremap <silent> <leader>l :set list! list?<CR>
 nnoremap <silent> <leader>n :set number! number?<CR>
 nnoremap <silent> <leader>p :set paste! paste?<CR>
 nnoremap <silent> <leader>w :set wrap! wrap?<CR>
+
+" move down screen lines rather than actual lines
+nnoremap j gj
+nnoremap k gk
+
+" set working dir to nearest .{git,hg,svn,bzr} dir
+let g:ctrlp_working_path_mode = 2

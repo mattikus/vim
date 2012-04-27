@@ -52,3 +52,15 @@
 [submodule "bundle/extradite"]
 	path = bundle/extradite
 	url = https://github.com/int3/vim-extradite.git
+[submodule "bundle/python-indent"]
+	path = bundle/python-indent
+	url = https://github.com/gg/python.vim.git
+[submodule "bundle/python-syntax.vim"]
+	path = bundle/python-syntax.vim
+	url = https://github.com/me-vlad/python-syntax.vim.git
+[submodule "bundle/jinja.vim"]
+	path = bundle/jinja.vim
+	url = https://github.com/rdunklau/Jinja.vim.git
+[submodule "bundle/json.vim"]
+	path = bundle/json.vim
+	url = https://github.com/vim-scripts/JSON.vim.git
