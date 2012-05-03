@@ -1,5 +1,18 @@
 set nocompatible
 
+source $HOME/.vim/bundles.vim
+
+filetype plugin indent on
+syntax on
+
+set background=dark
+if &t_Co > 16
+  "colorscheme mustang
+  colorscheme badwolf
+else
+  colorscheme desert
+endif
+
 set textwidth=79
 set hidden
 set showcmd
@@ -26,6 +39,10 @@ set scrolloff=3
 set shortmess=atTIs
 set verbose=0
 set laststatus=2 " always enable statusline
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪
 
 "set leaders
 let mapleader=','
@@ -104,10 +121,6 @@ if version >= 700
       \           setlocal omnifunc=syntaxcomplete#Complete |
       \   endif
 
-  "set omnicomplete to be default for supertab
-  let g:SuperTabDefaultCompletionType = "context"
-  let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
   autocmd BufReadPost *
@@ -124,47 +137,16 @@ endif
 "turn off folds by default
 set nofoldenable
 
-if &t_Co > 16
-  colorscheme mustang
-else
-  colorscheme desert
-endif
-
 " bind <leader>W to remove all whitespace in a file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
-set showbreak=↪
-
 " Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
-
-"turn on filetype matching, has to be after pathogen for ftdetect
-filetype plugin indent on
-syntax enable
 
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
     nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 endif
-
-" NERDTree Options
-nnoremap <leader>dd :NERDTreeToggle<CR>
-nnoremap <leader>de :NERDTree
-nnoremap <leader>df :NERDTreeFind<cr>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
-
-" Powerline Options
-let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-
-" gist options
-let g:gist_detect_filetype = 1
-if has("unix") && has("x11")
-  let g:gist_clip_command = 'xclip'
-end
 
 nnoremap <silent> <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <silent> <leader>l :set list! list?<CR>
@@ -176,5 +158,3 @@ nnoremap <silent> <leader>w :set wrap! wrap?<CR>
 nnoremap j gj
 nnoremap k gk
 
-" set working dir to nearest .{git,hg,svn,bzr} dir
-let g:ctrlp_working_path_mode = 2
