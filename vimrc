@@ -9,7 +9,6 @@ set ruler
 set mouse=a
 set backspace=indent,eol,start
 set wrap
-set t_md="" "turn off bold chars in terminal
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
@@ -38,9 +37,11 @@ set incsearch
 set showmatch
 
 " see fo-table for options
-set formatoptions=qrnl1
+set fo+=o " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=r " Do not automatically insert a comment leader after an enter
+set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)
 
-"fix highlighting on some shell stuffs
+" sets shell syntax to conform to posix std
 let g:is_posix=1
 
 " Set up a persistent dir for backups and undos for files
@@ -129,32 +130,15 @@ else
   colorscheme desert
 endif
 
-
 " bind <leader>W to remove all whitespace in a file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" map Q to last recorded macro
-nnoremap Q @@
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
 set showbreak=↪
 
-" Hides highlighting from searches
-nnoremap <leader><space> :nohlsearch<cr>
-
 " Let :w!! gain sudo priveleges without closing and reopening the file
 cmap w!! w !sudo tee % >/dev/null
-
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-if has("win32") || has("win64")
-  set shellslash " helps pathogen's duplication check
-  set runtimepath+=$USERPROFILE/vimfiles/bundle/pathogen
-else
-  set runtimepath+=$HOME/.vim/bundle/pathogen
-end
-call pathogen#infect()
 
 "turn on filetype matching, has to be after pathogen for ftdetect
 filetype plugin indent on
