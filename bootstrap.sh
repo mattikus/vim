@@ -1,5 +1,7 @@
 #!/bin/sh
 
 mkdir -p bundle
-git clone https://github.com/gmarik/vundle.git bundle/vundle
-vim -u bundles.vim +BundleInstall +q
+if [ ! -d bundle/vundle/.git ]; then
+    git clone https://github.com/gmarik/vundle.git bundle/vundle
+fi
+vim -u bundles.vim +BundleInstall +qall!
