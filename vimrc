@@ -7,8 +7,7 @@ syntax on
 
 set background=dark
 if &t_Co > 16
-  "colorscheme mustang
-  colorscheme badwolf
+  colorscheme mustang
 else
   colorscheme desert
 endif
