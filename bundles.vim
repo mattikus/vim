@@ -4,6 +4,8 @@ filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 
+filetype on
+
 Bundle 'gmarik/vundle'
 
 " plugins
@@ -52,3 +54,4 @@ Bundle 'mattikus/textgenshi.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'sjl/badwolf'
+Bundle 'tristen/superman'

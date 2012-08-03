@@ -1,8 +1,7 @@
 set nocompatible
 
-source $HOME/.vim/bundles.vim
-
 filetype plugin indent on
+source $HOME/.vim/bundles.vim
 syntax on
 
 set background=dark
