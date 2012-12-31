@@ -4,8 +4,6 @@ filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 
-filetype on
-
 Bundle 'gmarik/vundle'
 
 " plugins
@@ -24,11 +22,11 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
 
 Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = 2 "set working dir to nearest vcs dir
+let g:ctrlp_working_path_mode = 'rw' "set working dir to nearest vcs dir
 
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
@@ -40,7 +38,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'int3/vim-extradite'
 
 " indent
-Bundle 'gg/python.vim'
+Bundle 'hynek/vim-python-pep8-indent'
 
 " syntax
 Bundle 'me-vlad/python-syntax.vim'
@@ -54,5 +52,5 @@ Bundle 'mattikus/textgenshi.vim'
 " colors
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'sjl/badwolf'
-Bundle 'tristen/superman'
+
+filetype plugin indent on

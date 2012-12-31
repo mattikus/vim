@@ -1,43 +1,44 @@
-set nocompatible
-
-filetype plugin indent on
 source $HOME/.vim/bundles.vim
 syntax on
 
-"set background=dark
+set background=light
 if &t_Co > 16
-  "colorscheme mustang
   colorscheme solarized
 else
   colorscheme desert
 endif
 
-set textwidth=79
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set encoding=utf-8
+set expandtab
 set hidden
+set ignorecase
+set laststatus=2 " always enable statusline
+set mouse=a
+set modeline
+set modelines=5
+set ruler
+set scrolloff=3
+set shiftround
+set shiftwidth=4
+set shortmess=atTIs
 set showcmd
 set showmode
-set encoding=utf-8
-set ruler
-set mouse=a
-set backspace=indent,eol,start
-set wrap
+set smartcase
+set smartindent
+set smarttab
 set softtabstop=4
 set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-set autoindent
-set smartindent
-set ignorecase
-set smartcase
-set wrapscan
+set textwidth=79
+set timeoutlen=250
 set title
-set wildmenu
-set wildmode=list:longest
-set scrolloff=3
-set shortmess=atTIs
 set verbose=0
-set laststatus=2 " always enable statusline
+set wildmenu
+set wildmode=list,longest
+set wrap
+set wrapscan
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
@@ -84,11 +85,11 @@ nmap <F1> <Esc>
 vmap <F1> <Esc>
 imap <F1> <Esc>
 
-" bind C-<hjkl> to move around buffers and tabs
-nnoremap <C-h> :tabprevious<cr>
-nnoremap <C-j> :bprevious<cr>
-nnoremap <C-k> :bnext<cr>
-nnoremap <C-l> :tabnext<cr>
+" bind C-<hjkl> to move around splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Open .[gv]imrc in a new vertical split
 nnoremap <leader>ev :split $MYVIMRC<cr>
@@ -104,7 +105,7 @@ runtime macros/matchit.vim
 "stuff for vim 7
 if version >= 700
   "set autochdir
-  set completeopt=menuone,longest,preview
+  set completeopt+=preview
   set virtualedit=block
 
   "close the help preview window if moving in or leaving insert mode
@@ -145,6 +146,9 @@ cmap w!! w !sudo tee % >/dev/null
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
     nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+    " Changer iterm2 cursor shape when in insert mode
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 nnoremap <silent> <leader>h :set hlsearch! hlsearch?<CR>
