@@ -32,6 +32,7 @@ let g:ctrlp_working_path_mode = 2 "set working dir to nearest vcs dir
 
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'solarized'
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
 " git

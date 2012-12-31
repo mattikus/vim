@@ -4,9 +4,10 @@ filetype plugin indent on
 source $HOME/.vim/bundles.vim
 syntax on
 
-set background=dark
+"set background=dark
 if &t_Co > 16
-  colorscheme mustang
+  "colorscheme mustang
+  colorscheme solarized
 else
   colorscheme desert
 endif
@@ -83,11 +84,11 @@ nmap <F1> <Esc>
 vmap <F1> <Esc>
 imap <F1> <Esc>
 
-" bind C-<hjkl> to move around splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" bind C-<hjkl> to move around buffers and tabs
+nnoremap <C-h> :tabprevious<cr>
+nnoremap <C-j> :bprevious<cr>
+nnoremap <C-k> :bnext<cr>
+nnoremap <C-l> :tabnext<cr>
 
 " Open .[gv]imrc in a new vertical split
 nnoremap <leader>ev :split $MYVIMRC<cr>
