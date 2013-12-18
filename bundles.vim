@@ -22,16 +22,22 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '.svn', '.git', '.hg', 'CVSROOT']
 
 Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
+let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'rw' "set working dir to nearest vcs dir
+let g:ctrlp_working_path_mode='rw' "set working dir to nearest vcs dir
 
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'solarized'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+Bundle 'bling/vim-airline'
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_branch_prefix = ' '
+let g:airline_readonly_symbol = ''
+let g:airline_linecolumn_prefix = ' '
 
 " git
 Bundle 'tpope/vim-fugitive'
