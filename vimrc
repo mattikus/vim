@@ -1,5 +1,43 @@
-source $HOME/.vim/bundles.vim
+set nocompatible
+
+" Let's use Vundle to manage our plugins
+filetype off
+set runtimepath+=$HOME/.vim/bundle/vundle
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/vundle'
+
+" plugins
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tsaleh/vim-align'
+Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+
+" git
+Plugin 'tpope/vim-fugitive'
+
+" indent
+Plugin 'hynek/vim-python-pep8-indent'
+
+" syntax
+Plugin 'me-vlad/python-syntax.vim'
+Plugin 'rdunklau/Jinja.vim'
+Plugin 'vim-scripts/JSON.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'acustodioo/vim-tmux'
+Plugin 'kusnier/vim-mediawiki'
+Plugin 'mattikus/textgenshi.vim'
+
+" colors
+Plugin 'altercation/vim-colors-solarized'
+
 syntax on
+filetype plugin indent on
 
 set background=light
 if &t_Co > 16
@@ -160,4 +198,30 @@ nnoremap <silent> <leader>w :set wrap! wrap?<CR>
 " move down screen lines rather than actual lines
 nnoremap j gj
 nnoremap k gk
+
+" change keybindings from tabs to buffers
+map gt :bnext<CR>
+map gT :bprev<CR>
+
+
+" Plugin configuration
+
+" supertab
+let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
+
+" ctrlp
+let g:ctrlp_working_path_mode='rw' "set working dir to nearest vcs dir
+
+" airline
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_branch_prefix = ' '
+"let g:airline_readonly_symbol = ''
+"let g:airline_linecolumn_prefix = ' '
+let g:airline#extensions#tabline#enabled = 1
 
