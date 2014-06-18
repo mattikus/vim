@@ -32,6 +32,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'acustodioo/vim-tmux'
 Plugin 'kusnier/vim-mediawiki'
 Plugin 'mattikus/textgenshi.vim'
+Plugin 'fatih/vim-go'
 
 " colors
 Plugin 'altercation/vim-colors-solarized'
@@ -224,4 +225,9 @@ let g:airline_powerline_fonts=1
 "let g:airline_readonly_symbol = ''
 "let g:airline_linecolumn_prefix = ' '
 let g:airline#extensions#tabline#enabled = 1
+
+" vim-go
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
 
