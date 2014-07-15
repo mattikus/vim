@@ -230,4 +230,5 @@ let g:airline#extensions#tabline#enabled = 1
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
+let g:go_disable_autoinstall = 1
 
