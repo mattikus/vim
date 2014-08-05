@@ -33,6 +33,7 @@ Plugin 'acustodioo/vim-tmux'
 Plugin 'kusnier/vim-mediawiki'
 Plugin 'mattikus/textgenshi.vim'
 Plugin 'fatih/vim-go'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 " colors
 Plugin 'altercation/vim-colors-solarized'
