@@ -17,6 +17,7 @@ Plugin 'tsaleh/vim-align'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
 
 " git
 Plugin 'tpope/vim-fugitive'
@@ -185,7 +186,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
-    nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+    nnoremap <leader>M :silent !open -a Marked.app '%:p'<cr>
     " Changer iterm2 cursor shape when in insert mode
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -205,6 +206,8 @@ nnoremap k gk
 map gt :bnext<CR>
 map gT :bprev<CR>
 
+" easy bind for :make
+nnoremap <leader>m :make<cr>
 
 " Plugin configuration
 
@@ -230,6 +233,12 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>T <Plug>(go-test)
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 au FileType go nmap <leader>t <Plug>(go-test)
-let g:go_disable_autoinstall = 1
+
+"disable vim-go auto install. run :GoUpdateBinaries to get the required stuffs.
+let g:go_disable_autoinstall = 1 
+
 
