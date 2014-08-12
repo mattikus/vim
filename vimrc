@@ -185,7 +185,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
-    nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+    nnoremap <leader>M :silent !open -a Marked.app '%:p'<cr>
     " Changer iterm2 cursor shape when in insert mode
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -205,6 +205,8 @@ nnoremap k gk
 map gt :bnext<CR>
 map gT :bprev<CR>
 
+" easy bind for :make
+nnoremap <leader>m :make<cr>
 
 " Plugin configuration
 
