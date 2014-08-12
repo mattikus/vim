@@ -17,6 +17,7 @@ Plugin 'tsaleh/vim-align'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
 
 " git
 Plugin 'tpope/vim-fugitive'
@@ -229,5 +230,7 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>T <Plug>(go-test)
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 
