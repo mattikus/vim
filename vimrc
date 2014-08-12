@@ -233,4 +233,9 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>T <Plug>(go-test)
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au FileType go nmap <leader>t <Plug>(go-test)
+
+"disable vim-go auto install. run :GoUpdateBinaries to get the required stuffs.
+let g:go_disable_autoinstall = 1 
+
 
