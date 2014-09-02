@@ -185,7 +185,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 if has("unix") && system("uname") == "Darwin\n"
     " Fun mac stuff can go here
-    nnoremap <leader>M :silent !open -a Marked.app '%:p'<cr>
+    nnoremap <leader>M :silent !open -a Marked\ 2.app '%:p'<cr>
     " Changer iterm2 cursor shape when in insert mode
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -232,10 +232,9 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>T <Plug>(go-test)
+au FileType go nmap <leader>t <Plug>(go-test)
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au FileType go nmap <leader>t <Plug>(go-test)
 
 if exists("$GOPATH")
     let g:go_bin_path = expand("$GOPATH/bin")
