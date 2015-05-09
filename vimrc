@@ -3,10 +3,9 @@ set nocompatible
 " Let's use Vundle to manage our plugins
 filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
-call vundle#rc()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+call vundle#begin()
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " plugins
 Plugin 'tpope/vim-surround'
@@ -37,6 +36,7 @@ Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 " colors
 Plugin 'altercation/vim-colors-solarized'
+call vundle#end()
 
 syntax on
 filetype plugin indent on

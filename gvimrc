@@ -12,4 +12,4 @@ endif
 set colorcolumn=+1
 set columns=120
 set showtabline=1
-set guioptions=egt
+set guioptions=gt
