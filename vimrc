@@ -2,42 +2,51 @@ set nocompatible
 
 " Let's use Vundle to manage our plugins
 filetype off
-set runtimepath+=$HOME/.vim/bundle/vundle
-call vundle#begin()
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+
+call plug#begin('~/.vim/plugged')
 
 " plugins
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-repeat'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tsaleh/vim-align'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tsaleh/vim-align'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 " git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " indent
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 
 " syntax
-Plugin 'me-vlad/python-syntax.vim'
-Plugin 'rdunklau/Jinja.vim'
-Plugin 'vim-scripts/JSON.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'acustodioo/vim-tmux'
-Plugin 'kusnier/vim-mediawiki'
-Plugin 'mattikus/textgenshi.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plug 'me-vlad/python-syntax.vim'
+Plug 'rdunklau/Jinja.vim'
+Plug 'vim-scripts/JSON.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'acustodioo/vim-tmux'
+Plug 'kusnier/vim-mediawiki'
+Plug 'mattikus/textgenshi.vim'
+Plug 'fatih/vim-go'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " colors
-Plugin 'altercation/vim-colors-solarized'
-call vundle#end()
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
 
 syntax on
 filetype plugin indent on
