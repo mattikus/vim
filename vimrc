@@ -33,6 +33,7 @@ Plugin 'kusnier/vim-mediawiki'
 Plugin 'mattikus/textgenshi.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'PotatoesMaster/i3-vim-syntax'
 
 " colors
 Plugin 'altercation/vim-colors-solarized'
