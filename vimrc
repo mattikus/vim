@@ -6,11 +6,13 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tsaleh/vim-align'
+Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 
@@ -43,9 +45,11 @@ Plug 'mattikus/textgenshi.vim'
 Plug 'fatih/vim-go'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'derekwyatt/vim-scala'
 
 " colors
 Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 syntax on
