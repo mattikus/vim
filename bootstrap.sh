@@ -22,5 +22,5 @@ if [ ! -f ${vimpath}/autoload/plug.vim ]; then
 
     $vimprg +PlugInstall! +qall!
 else
-    $vimprg +PlugUpdate +qall!
+    $vimprg +PlugUpdate
 fi
