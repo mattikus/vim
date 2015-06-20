@@ -51,6 +51,7 @@ endif
 " options not defined in vim-sensible
 set hidden
 set ignorecase
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮,nbsp:␣
 set modeline
 set modelines=5
 set nofoldenable
@@ -58,7 +59,7 @@ set shiftround
 set shortmess=aftTIs
 set showmatch
 set smartcase
-set timeoutlen=100
+set timeoutlen=200
 set wildmode=longest,full
 set wrap
 set wrapscan
