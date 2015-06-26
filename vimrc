@@ -44,8 +44,8 @@ call plug#end()
 " set up colorscheme
 if &t_Co >= 16
   let g:airline_theme='base16'
-  colorscheme base16-tomorrow
   set background=dark
+  colorscheme base16-ocean
 endif
 
 " options not defined in vim-sensible
