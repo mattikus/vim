@@ -59,7 +59,7 @@ set shiftround
 set shortmess=aftTIs
 set showmatch
 set smartcase
-set timeoutlen=200
+set timeoutlen=350
 set wildmode=longest,full
 set wrap
 set wrapscan
@@ -139,7 +139,7 @@ cmap W!! w !sudo tee % >/dev/null
 " disable paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
-" 
+"
 " Plugin configuration
 "
 
