@@ -7,8 +7,10 @@ endif
 " let's use plug to manage our plugins
 call plug#begin('~/.vim/plugged')
 
-" plugins
+" start with sane defaults
 Plug 'tpope/vim-sensible'
+
+" plugins
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
@@ -33,7 +35,6 @@ Plug 'mattikus/textgenshi.vim'
 Plug 'fatih/vim-go'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'derekwyatt/vim-scala'
 
 " colors
 Plug 'altercation/vim-colors-solarized'
@@ -142,10 +143,6 @@ autocmd InsertLeave * set nopaste
 "
 " Plugin configuration
 "
-
-" supertab
-let g:SuperTabDefaultCompletionType='context'
-let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 
 " ctrlp
 let g:ctrlp_working_path_mode='rw' "set working dir to nearest vcs dir
